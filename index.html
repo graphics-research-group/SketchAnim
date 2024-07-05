@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B9N9911MNC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B9N9911MNC');
+  </script>
+  
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SketchAnim: Real-time sketch animation transfer from videos">
+  <meta name="keywords" content="Sketch Animation, Skeleton mapping, Occlusion handling, Motion transfer">
+  <meta name="viewport" content="width=device-width, initial-scale=0.1">
+  <title>SketchAnim: Real-time sketch animation transfer from videos</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-tooltip.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!--Title block-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop" id="top">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h2 class="title is-1 publication-title">SketchAnim: Real-time sketch animation transfer from videos</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><a href="" target="_blank">Anonymous Authors</a></span>
+          </div>
+          <br>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="coming soon" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/resat-anim/SketchAnim/tree/main/dataset" target="_blank"
+                  class="external-link button is-normal is-rounded">
+                  <span class="icon">
+                    <i class="fas fa-database"></i>
+                  </span>
+                  <span>Dataset</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/resat-anim/SketchAnim/" target="_blank"
+                class="external-link button is-normal is-rounded">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>Code</span>
+              </a>
+              </span>
+           
+            </div>
+          </div>
+
+
+          <div class="columns is-centered has-text-centered is-variable is-8">
+          <div class="column is-three-quarters is-centered has-text-centered">
+            <div class="publication-links ">
+
+            <span class="link-block">
+              <a href="#network"
+                 class="nav-link button-55 is-normal">
+                <span>How does it work?</span>
+                </a>
+            </span>
+
+            <span class="link-block">
+              <a href="#gallery"
+                  class="nav-link button-55 is-normal">
+                <span>Results</span>
+                </a>
+            </span>
+
+            <span class="link-block">
+              <a href="#comparisons"
+                 class="nav-link button-55 is-normal">
+                <span>Comparisons</span>
+                </a>
+            </span>                    
+          </div>
+
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Video-->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    
+        <div class="item">
+          <p style="margin-bottom: 30px">
+        <video poster="" id="tree" autoplay controls muted loop height="100%">
+          <source src="static/videos/main_video/teaser.mp4"
+          type="video/mp4">
+
+        </video>
+        </p>
+      </div>
+  </div>
+</section>
+
+<!-- Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+        <p>
+		Sketches serve as a great medium for visual communication and animating sketches can add dynamism and interactivity. 
+		Traditional tools for animating sketches require a unique set of skills to bring hand-drawn characters to life. 
+		Artists often refer to some existing videos and try to replicate a similar video motion to the sketch character 
+		when attempting to animate it. However, this process is often time-consuming, and an inaccurate replication of 
+		motion may make the character's movement look non-fluent or unnatural, especially for those with little to no 
+		experience in animation. 
+        </p>
+        </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">How does it work?</h2><br>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h3 class="title is-3">Workflow</h3>
+      <div style="display: flex; flex-direction: column; align-items: center;">
+        <img id="network" src="static/images/method/pipeline.png" alt="MY ALT TEXT" style="max-width: 100%; max-height: 100%; height: 512px; width: 1024px"/>
+        <div class="content has-text-justified" style="max-width: 80%;">
+			Overview of our proposed framework for sketch animation.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Comparisons -->
+<section class="section hero is-light">
+  <div class="container is-widescreen" id="gallery">
+    <div class="link-block ">
+      <a href="#top"
+          class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+        </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Results</h2><br>
+    </div>
+    <div class="columns is-centered has-text-centered is-variable is-8">
+      <div class="column is-two-fifths is-centered has_border_right">
+          <div class="comp_gallery">
+
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped1/sketch.png" alt="bike"/>
+                <h6 class="caption">Input sketch</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped1/video.gif" alt="bike"/>
+                <h6 class="caption">Driving video</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped1/output.gif" alt="bike"/>
+                <h6 class="caption">Output</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped2/sketch.png" alt="bike"/>
+                <h6 class="caption">Input sketch</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped2/video.gif" alt="bike"/>
+                <h6 class="caption">Driving video</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/biped2/output.gif" alt="bike"/>
+                <h6 class="caption">Output</h6>
+            </div>
+          </div>
+      </div>
+      <div class="column is-two-fifths is-centered has_border_left">
+          <div class="comp_gallery">
+
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/quadruped2/sketch.png" alt="bike"/>
+                <h6 class="caption">Input sketch</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/quadruped2/video.gif" alt="bike"/>
+                <h6 class="caption">Driving video</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/quadruped2/output.gif" alt="bike"/>
+                <h6 class="caption">Output</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/inanimate2/sketch.png" alt="bike"/>
+                <h6 class="caption">Input sketch</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/inanimate2/video.gif" alt="bike"/>
+                <h6 class="caption">Driving video</h6>
+            </div>
+            <div class="captioned_video">
+                <img class="gallery_img" src="static/videos/results/inanimate2/output.gif" alt="bike"/>
+                <h6 class="caption">Output</h6><br>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+
+<!-- Comparing Video Models -->
+<section class="section">
+  <div class="container is-widescreen" id="comparisons">
+    <div class="link-block ">
+      <a href="#top"
+          class="nav-link button-55 is-normal">
+        <span>Go to Top</span>
+        </a>
+    </div>
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3">Comparison</h2><br>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered is-variable is-8">
+      <div class="column is-one-fifths is-centered">
+          <div class="vidcomp_gallery1">
+
+          <div class="captioned_video">
+            <h6 class="caption">Input</h6>
+        </div>
+         <div class="captioned_video">
+            <h6 class="caption">Driving</h6>
+        </div>
+        <div class="captioned_video">
+          <h6 class="caption">FOMM</h6>
+      </div>
+        <div class="captioned_video">
+            <h6 class="caption">AnimationDrawing</h6>
+        </div>
+        <div class="captioned_video">
+            <h6 class="caption">SketchAnim (Ours)</h6>
+        </div>
+
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped1/sketch.png" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped1/video.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped1/fomm.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped1/animation_drawing.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped1/sketchanim.gif" alt="bike"/>
+          </div>
+
+
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped2/sketch.png" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped2/video.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped2/fomm.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped2/animation_drawing.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/biped2/sketchanim.gif" alt="bike"/>
+          </div>
+
+    </div>
+
+    <div class="section-title has-text-centered is-centered">
+      <h2 class="title is-3"></h2><br>
+    </div>
+
+    <div class="columns is-centered has-text-centered is-variable is-8">
+      <div class="column is-one-fifths is-centered">
+          <div class="vidcomp_gallery2">
+
+          <div class="captioned_video">
+            <h6 class="caption">Input</h6>
+        </div>
+         <div class="captioned_video">
+            <h6 class="caption">Driving</h6>
+        </div>
+        <div class="captioned_video">
+          <h6 class="caption">FOMM</h6>
+      </div>
+        <div class="captioned_video">
+            <h6 class="caption">SketchAnim (Ours)</h6>
+        </div>
+
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped1/sketch.png" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped1/video.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped1/fomm.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped1/sketchanim.gif" alt="bike"/>
+          </div>
+
+
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped2/sketch.png" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped2/video.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped2/fomm.gif" alt="bike"/>
+          </div>
+          <div class="captioned_video">
+              <img class="vidcomp_src_img" src="static/videos/comparisons/quadruped2/sketchanim.gif" alt="bike"/>
+          </div>
+    </div>
+	  <div class="section is-centered has-text-centered">
+	    We compare our method with FOMM and AnimationDrawing baselines: (<a href="https://aliaksandrsiarohin.github.io/first-order-model-website/">FOMM</a>, <a href="https://fairanimateddrawings.com/site/home">AnimationDrawing</a>). We can see that our method generates promising results compared to state-of-the-art methods.     
+	    </div>   
+      </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="coming soon">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/resat-anim/SketchAnim/" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website content is licensed under a <a rel="license"
+                                                href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative
+            Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Website source code based on the <a href="https://nerfies.github.io/"> Nerfies</a> project page. If you want to reuse their <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a>, please credit them appropriately.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
