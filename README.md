@@ -62,6 +62,6 @@ python main.ipynb
 
 
 
-### Acknowlegement:
+### Acknowledgements:
 
 We have borrowed the code from [co-tracker](https://github.com/facebookresearch/co-tracker.git), [DeformationPyramid](https://github.com/rabbityl/DeformationPyramid.git) and [BBW](https://github.com/libigl/libigl/blob/main/include/igl/bbw.h) in our work.  We sincerely thank the authors for their valuable contributions to the research community.
